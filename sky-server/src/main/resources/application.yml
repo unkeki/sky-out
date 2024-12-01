@@ -21,8 +21,8 @@ spring:
     admin:
       client:
         url: http://127.0.0.1:8081
-        instance:
-          prefer-ip: true
+        username: admin
+        password: admin
 
 mybatis:
   #mapper配置文件

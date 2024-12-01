@@ -1,5 +1,26 @@
 spring:
   application:
     name: springbootAdmin
+  mail:
+    # 发件人使用的qq邮箱服务
+    host: smtp.qq.com
+    username: ooamo@foxmail.com
+    # 授权码，不是密码，在qq邮箱设置-账号里面有生成授权码
+    password: ewnzpqhzoiqdbjga
+    port: 465
+    protocol: smtps
+  boot:
+    admin:
+      notify:
+        mail:
+          # 收件人，多个中间用,分隔
+          to: ooamo@foxmail.com
+          # 发件人
+          from: ooamo@foxmail.com
+  security:
+    user:
+      name: admin
+      password: admin
 server:
   port: 8081
+
