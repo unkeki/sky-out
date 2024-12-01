@@ -17,6 +17,12 @@ spring:
     port: ${sky.redis.port}
     password: ${sky.redis.password}
     database: ${sky.redis.database}
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8081
+        instance:
+          prefer-ip: true
 
 mybatis:
   #mapper配置文件
@@ -42,6 +48,13 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+    # 用户端
+    user-secret-key: itheima
+    user-ttl: 7200000
+    user-token-name: authentication
+  wechat:
+    appid: wxdf484c67321c0eb1
+    secret: 60b018101d36646cd223c79183a35a5d
 
   #minio
   minio:
@@ -49,3 +62,14 @@ sky:
     secret-key: ${sky.minio.secret-key}
     url: ${sky.minio.url}
     bucket-name: ${sky.minio.bucket-name}
+
+# actuator
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
