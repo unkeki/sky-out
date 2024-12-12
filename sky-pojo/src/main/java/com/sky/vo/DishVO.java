@@ -1,5 +1,9 @@
 package com.sky.vo;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.sky.entity.DishFlavor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,6 +35,8 @@ public class DishVO implements Serializable {
     //0 停售 1 起售
     private Integer status;
     //更新时间
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)		// 反序列化
+    @JsonSerialize(using = LocalDateTimeSerializer.class)		// 序列化
     private LocalDateTime updateTime;
     //分类名称
     private String categoryName;
